@@ -1,9 +1,10 @@
 package com.rexus.pets.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.rexus.pets.entity.Pet;
 
-public interface PetRepository extends JpaRepository<Pet, Integer> {
+
+public interface PetRepository extends CrudRepository<Pet, Integer> {
 
 }
