@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.rexus.pets.entity.Pet;
 import com.rexus.pets.entity.PetType;
-import com.rexus.pets.repository.PetRepository;
+import com.rexus.pets.repository.PetsRepository;
 
 @SpringBootApplication
 public class Application {
@@ -18,7 +18,7 @@ public class Application {
 	}
 	
 	@Autowired
-	private PetRepository petRepository;
+	private PetsRepository petRepository;
 	
 	@PostConstruct
 	public void init() {
@@ -26,4 +26,5 @@ public class Application {
 		petRepository.save(new Pet("Maneta", PetType.GATO));
 		petRepository.save(new Pet("Lôro", PetType.PAPAGAIO));
 	}
+	
 }
