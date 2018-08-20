@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.rexus.pets.entity.Pet;
 
-@RepositoryRestResource
-public interface PetsRepository extends PagingAndSortingRepository<Pet, Integer> {
+@RepositoryRestResource(path = "/pets", itemResourceRel = "pet", collectionResourceRel = "pets")
+public interface PetRepository extends PagingAndSortingRepository<Pet, Integer> {
 
 }

@@ -1,10 +1,11 @@
 package com.rexus.pets.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
@@ -25,12 +26,14 @@ public class Pet {
     @GeneratedValue
     private Integer id;
     
+    @Column(name = "nome", nullable = false, unique = true)
     private String nome;
 
-    @Enumerated(EnumType.STRING)
-    private PetType tipo;
+    @ManyToOne
+    @JoinColumn(name = "tipo", referencedColumnName = "id", nullable = false)
+    private TipoPet tipo;
 
-	public Pet(String nome, PetType tipo) {
+	public Pet(String nome, TipoPet tipo) {
 		this.nome = nome;
 		this.tipo = tipo;
 	}
