@@ -6,18 +6,20 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.rexus.pets.entity.Pet;
+import com.rexus.pets.entity.TipoPet;
 
 @Component
 public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter {
-
+    
+    private final Class<?>[] classesToExposeID = {
+            Pet.class,
+            TipoPet.class
+    };
+    
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-		configurarExposicaoId(config);
+	    config.exposeIdsFor(classesToExposeID);
 		configurarCors(config);
-	}
-
-	private void configurarExposicaoId(RepositoryRestConfiguration config) {
-		config.exposeIdsFor(Pet.class);
 	}
 
 	private void configurarCors(RepositoryRestConfiguration config) {
