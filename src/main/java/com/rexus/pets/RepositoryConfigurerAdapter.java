@@ -24,7 +24,7 @@ public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter
 
 	private void configurarCors(RepositoryRestConfiguration config) {
 		config.getCorsRegistry()
-			.addMapping("/pets/**")
+			.addMapping("/**")
 			.allowedOrigins("http://localhost:3000")
 			.allowedMethods(
 					HttpMethod.GET.toString(),
