@@ -30,6 +30,7 @@ public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter
 					HttpMethod.GET.toString(),
 					HttpMethod.POST.toString(),
 					HttpMethod.PUT.toString(),
+					HttpMethod.PATCH.toString(),
 					HttpMethod.DELETE.toString());
 	}
 }
