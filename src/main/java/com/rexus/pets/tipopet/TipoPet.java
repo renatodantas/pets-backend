@@ -1,4 +1,4 @@
-package com.rexus.pets.entity;
+package com.rexus.pets.tipopet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

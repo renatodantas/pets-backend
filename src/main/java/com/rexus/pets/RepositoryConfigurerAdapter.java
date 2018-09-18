@@ -5,15 +5,13 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
-import com.rexus.pets.entity.Pet;
-import com.rexus.pets.entity.TipoPet;
+import com.rexus.pets.pet.Pet;
 
 @Component
 public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter {
     
     private final Class<?>[] classesToExposeID = {
-            Pet.class,
-            TipoPet.class
+            Pet.class
     };
     
 	@Override

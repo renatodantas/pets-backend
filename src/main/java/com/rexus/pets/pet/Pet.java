@@ -1,4 +1,4 @@
-package com.rexus.pets.entity;
+package com.rexus.pets.pet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.rexus.pets.tipopet.TipoPet;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
