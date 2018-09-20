@@ -11,14 +11,14 @@ import com.rexus.pets.tipopet.TipoPet;
 @Component
 public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter {
     
-    private final Class<?>[] classesToExposeID = {
+    private static final Class<?>[] ENTIDADES_PARA_EXPOR_ID = {
             Pet.class,
             TipoPet.class
     };
     
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-	    config.exposeIdsFor(classesToExposeID);
+	    config.exposeIdsFor(ENTIDADES_PARA_EXPOR_ID);
 		configurarCors(config);
 	}
 
