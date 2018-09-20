@@ -35,6 +35,9 @@ public class Application {
 		petRepository.save(new Pet("Sarugo", tipoCachorro));
 		petRepository.save(new Pet("Maneta", tipoGato));
 		petRepository.save(new Pet("Lôro", tipoPapagaio));
+		petRepository.save(new Pet("fofinho", tipoPapagaio));
+		petRepository.save(new Pet("capiroto", tipoGato));
+		petRepository.save(new Pet("luck", tipoCachorro));
 	}
 	
 }

@@ -27,5 +27,14 @@ public class TipoPet {
     
     @Column(name = "descricao", nullable = false, unique = true)
     private String descricao;
+    
+    /**
+     * Construtor padrão para o Spring Data
+     * 
+     * @param id do tipo do pet
+     */
+    public TipoPet(Integer id) {
+        this.id = id;
+    }
 
 }

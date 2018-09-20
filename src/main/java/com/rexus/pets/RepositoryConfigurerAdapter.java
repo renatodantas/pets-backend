@@ -6,12 +6,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.rexus.pets.pet.Pet;
+import com.rexus.pets.tipopet.TipoPet;
 
 @Component
 public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter {
     
     private final Class<?>[] classesToExposeID = {
-            Pet.class
+            Pet.class,
+            TipoPet.class
     };
     
 	@Override

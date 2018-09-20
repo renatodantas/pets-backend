@@ -34,10 +34,10 @@ public class Pet {
     private String nome;
 
     @ManyToOne
-    @RestResource
+    @RestResource(exported = false)
     @JoinColumn(name = "tipo", referencedColumnName = "id", nullable = false)
     private TipoPet tipo;
-
+    
 	public Pet(String nome, TipoPet tipo) {
 		this.nome = nome;
 		this.tipo = tipo;
