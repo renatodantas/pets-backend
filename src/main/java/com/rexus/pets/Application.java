@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.rexus.pets.entity.Pet;
-import com.rexus.pets.entity.TipoPet;
-import com.rexus.pets.repository.PetRepository;
-import com.rexus.pets.repository.TipoPetRepository;
+import com.rexus.pets.pet.Pet;
+import com.rexus.pets.pet.PetRepository;
+import com.rexus.pets.tipopet.TipoPet;
+import com.rexus.pets.tipopet.TipoPetRepository;
 
 import lombok.val;
 
@@ -35,6 +35,9 @@ public class Application {
 		petRepository.save(new Pet("Sarugo", tipoCachorro));
 		petRepository.save(new Pet("Maneta", tipoGato));
 		petRepository.save(new Pet("Lôro", tipoPapagaio));
+		petRepository.save(new Pet("fofinho", tipoPapagaio));
+		petRepository.save(new Pet("capiroto", tipoGato));
+		petRepository.save(new Pet("luck", tipoCachorro));
 	}
 	
 }

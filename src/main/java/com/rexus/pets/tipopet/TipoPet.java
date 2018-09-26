@@ -1,4 +1,4 @@
-package com.rexus.pets.entity;
+package com.rexus.pets.tipopet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,5 +27,14 @@ public class TipoPet {
     
     @Column(name = "descricao", nullable = false, unique = true)
     private String descricao;
+    
+    /**
+     * Construtor padrão para o Spring Data
+     * 
+     * @param id do tipo do pet
+     */
+    public TipoPet(Integer id) {
+        this.id = id;
+    }
 
 }

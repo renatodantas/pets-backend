@@ -5,20 +5,20 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
-import com.rexus.pets.entity.Pet;
-import com.rexus.pets.entity.TipoPet;
+import com.rexus.pets.pet.Pet;
+import com.rexus.pets.tipopet.TipoPet;
 
 @Component
 public class RepositoryConfigurerAdapter extends RepositoryRestConfigurerAdapter {
     
-    private final Class<?>[] classesToExposeID = {
+    private static final Class<?>[] ENTIDADES_PARA_EXPOR_ID = {
             Pet.class,
             TipoPet.class
     };
     
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-	    config.exposeIdsFor(classesToExposeID);
+	    config.exposeIdsFor(ENTIDADES_PARA_EXPOR_ID);
 		configurarCors(config);
 	}
 

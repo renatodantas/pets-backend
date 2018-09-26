@@ -1,4 +1,4 @@
-package com.rexus.pets.entity;
+package com.rexus.pets.pet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import com.rexus.pets.tipopet.TipoPet;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -30,9 +34,10 @@ public class Pet {
     private String nome;
 
     @ManyToOne
+    @RestResource(exported = false)
     @JoinColumn(name = "tipo", referencedColumnName = "id", nullable = false)
     private TipoPet tipo;
-
+    
 	public Pet(String nome, TipoPet tipo) {
 		this.nome = nome;
 		this.tipo = tipo;
