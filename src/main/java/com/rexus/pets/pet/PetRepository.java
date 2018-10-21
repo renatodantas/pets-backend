@@ -1,9 +1,9 @@
 package com.rexus.pets.pet;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource(itemResourceRel = "pet", collectionResourceRel = "pets")
+@Repository
 public interface PetRepository extends PagingAndSortingRepository<Pet, Integer> {
 
 }

@@ -8,8 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.rest.core.annotation.RestResource;
-
 import com.rexus.pets.tipopet.TipoPet;
 
 import lombok.EqualsAndHashCode;
@@ -34,7 +32,6 @@ public class Pet {
     private String nome;
 
     @ManyToOne
-    @RestResource(exported = false)
     @JoinColumn(name = "tipo", referencedColumnName = "id", nullable = false)
     private TipoPet tipo;
     
