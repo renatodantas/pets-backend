@@ -43,6 +43,18 @@
       <artifactId>spring-boot-devtools</artifactId>
       <optional>true</optional>
     </dependency>
+    
+    <!-- MapStruct -->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-jdk8</artifactId>
+      <version>${version.mapstruct}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>${version.mapstruct}</version>
+    </dependency>
 
     <!-- Utilitários -->
     <dependency>
@@ -58,12 +70,7 @@
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct-jdk8</artifactId>
-      <version>${version.mapstruct}</version>
-    </dependency>
-
+    
     <!-- Testes -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -81,11 +88,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+          <!--
         <dependencies>
           <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
-            <version>6.2.1</version> <!-- Use newer version of ASM -->
+            <version>6.2.1</version>
           </dependency>
         </dependencies>
         <configuration>
@@ -101,6 +109,7 @@
             <compilerArg>-Amapstruct.defaultComponentModel=spring</compilerArg>
           </compilerArgs>
         </configuration>
+          -->
       </plugin>
     </plugins>
   </build>

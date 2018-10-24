@@ -3,9 +3,10 @@ package com.rexus.pets.pet;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface PetMapper {
 
 	PetMapper INSTANCE = Mappers.getMapper(PetMapper.class);
@@ -14,11 +15,11 @@ public interface PetMapper {
 		@Mapping(source="id", target="id"),
 		@Mapping(source="nome", target="nome")
 	})
-	PetDto converter(Pet pet);
+	PetDto to(Pet pet);
 	
 	@Mappings({
 		@Mapping(source="id", target="id"),
 		@Mapping(source="nome", target="nome")
 	})
-	Pet converter(PetDto pet);
+	Pet to(PetDto dto);
 }
