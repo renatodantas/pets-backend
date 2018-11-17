@@ -1,23 +1,20 @@
 package com.rexus.pets.pet;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
+import com.rexus.pets.AbstractService;
 
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class PetService {
+public class PetService extends AbstractService<Pet, Integer> {
 
 	private final PetRepository petRepository;
-	private final PetMapper petMapper;
 	
-	public List<PetDto> findAll() {
-		Iterable<Pet> pets = petRepository.findAll();
-		List<PetDto> dtos = new ArrayList<>();
-		pets.forEach(pet -> dtos.add(petMapper.converter(pet)));
-		return dtos;
+	@Override
+	protected JpaRepository<Pet, Integer> getRepository() {
+		return petRepository;
 	}
 }

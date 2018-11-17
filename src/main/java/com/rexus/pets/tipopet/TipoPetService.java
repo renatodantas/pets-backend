@@ -1,23 +1,20 @@
 package com.rexus.pets.tipopet;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+
+import com.rexus.pets.AbstractService;
 
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class TipoPetService {
+public class TipoPetService extends AbstractService<TipoPet, Integer> {
 
 	private final TipoPetRepository tipoPetRepository;
-	private final TipoPetMapper tipoPetMapper;
 	
-	public List<TipoPetDto> findAll() {
-		Iterable<TipoPet> pets = tipoPetRepository.findAll();
-		List<TipoPetDto> dtos = new ArrayList<>();
-		pets.forEach(pet -> dtos.add(tipoPetMapper.converter(pet)));
-		return dtos;
+	@Override
+	protected JpaRepository<TipoPet, Integer> getRepository() {
+		return tipoPetRepository;
 	}
 }

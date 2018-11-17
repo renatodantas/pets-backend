@@ -1,4 +1,4 @@
-package com.rexus.pets.pet;
+package com.rexus.pets.dono;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,22 +14,22 @@ import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@AllArgsConstructor
 @RestController
-@RequestMapping("/pets")
-public class PetResource {
+@RequestMapping("/donos")
+@AllArgsConstructor 
+public class DonoResource {
 
-	private final PetService petService;
+	private final DonoService donoService;
 	
 	@GetMapping
-	public List<PetDto> getPets(@RequestParam MultiValueMap<String, String> queryParams) {
+	public List<DonoDto> getPets(@RequestParam MultiValueMap<String, String> queryParams) {
 		log.info("page: " + queryParams.getFirst("page"));
 		log.info("order: " + queryParams.getFirst("order"));
-		
-		val pets = petService.findAll();
-		log.info("Pets encontrados: {}", pets.size());
-		return pets.stream()
-				.map(PetMapper.INSTANCE::converter)
+
+		val donos = donoService.findAll();
+		log.info("Donos encontrados: {}", donos.size());
+		return donos.stream()
+				.map(DonoMapper.INSTANCE::converter)
 				.collect(Collectors.toList());
 	}
 }
