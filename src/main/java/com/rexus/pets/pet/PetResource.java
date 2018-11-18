@@ -29,7 +29,7 @@ public class PetResource {
 		val pets = petService.findAll();
 		log.info("Pets encontrados: {}", pets.size());
 		return pets.stream()
-				.map(PetMapper.INSTANCE::converter)
+				.map(PetMapper.INSTANCE::to)
 				.collect(Collectors.toList());
 	}
 }

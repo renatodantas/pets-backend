@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.rexus.pets.dono.Dono;
+import com.rexus.pets.dono.DonoRepository;
 import com.rexus.pets.pet.Pet;
 import com.rexus.pets.pet.PetRepository;
 import com.rexus.pets.tipopet.TipoPet;
@@ -21,6 +23,9 @@ public class Application {
 	}
 	
 	@Autowired
+	private DonoRepository donoRepository;
+	
+	@Autowired
 	private PetRepository petRepository;
 	
 	@Autowired
@@ -28,16 +33,20 @@ public class Application {
 	
 	@PostConstruct
 	public void init() {
+		val donoRenato   = donoRepository.save(new Dono("Renato"));
+		val donoMarcelo  = donoRepository.save(new Dono("Marcelo"));
+		val donoHenrique = donoRepository.save(new Dono("Henrique"));
+		
 		val tipoCachorro = tipoPetRepository.save(new TipoPet(1, "Cachorro"));
 		val tipoGato     = tipoPetRepository.save(new TipoPet(2, "Gato"));
-		val tipoPapagaio = tipoPetRepository.save(new TipoPet(3, "Papagaio"));
+		val tipoPassaro  = tipoPetRepository.save(new TipoPet(3, "Pássaro"));
 		
-		petRepository.save(new Pet("Sarugo", tipoCachorro));
-		petRepository.save(new Pet("Maneta", tipoGato));
-		petRepository.save(new Pet("Lôro", tipoPapagaio));
-		petRepository.save(new Pet("fofinho", tipoPapagaio));
-		petRepository.save(new Pet("capiroto", tipoGato));
-		petRepository.save(new Pet("luck", tipoCachorro));
+		petRepository.save(new Pet("Sarugo",    tipoCachorro, donoRenato));
+		petRepository.save(new Pet("Maneta",    tipoGato, 	  donoRenato));
+		petRepository.save(new Pet("Lôro",      tipoPassaro,  donoHenrique));
+		petRepository.save(new Pet("Calopsita", tipoPassaro,  donoHenrique));
+		petRepository.save(new Pet("Capiroto",  tipoGato,     donoMarcelo));
+		petRepository.save(new Pet("Salém",     tipoGato,     donoMarcelo));
 	}
 	
 }

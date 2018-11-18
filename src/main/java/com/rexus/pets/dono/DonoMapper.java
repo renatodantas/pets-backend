@@ -14,11 +14,11 @@ interface DonoMapper {
 		@Mapping(source="id", target="id"),
 		@Mapping(source="nome", target="nome")
 	})
-	DonoDto converter(Dono pet);
+	DonoDto to(Dono pet);
 	
 	@Mappings({
 		@Mapping(source="id", target="id"),
 		@Mapping(source="nome", target="nome")
 	})
-	Dono converter(DonoDto pet);
+	Dono to(DonoDto pet);
 }

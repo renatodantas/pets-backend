@@ -29,7 +29,7 @@ public class TipoPetResource {
 		
 		log.info("Tipos de pets encontrados: {}", tipos.size());
 		return tipos.stream()
-				.map(TipoPetMapper.INSTANCE::converter)
+				.map(TipoPetMapper.INSTANCE::to)
 				.collect(Collectors.toList());
 	}
 }

@@ -10,6 +10,6 @@ import lombok.Setter;
 public class TipoPetDto {
 
     private Integer id;
-    private String nome;
+    private String descricao;
 
 }

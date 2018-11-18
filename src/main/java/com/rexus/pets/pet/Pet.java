@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.rexus.pets.dono.Dono;
 import com.rexus.pets.tipopet.TipoPet;
 
 import lombok.EqualsAndHashCode;
@@ -35,8 +36,13 @@ public class Pet {
     @JoinColumn(name = "tipo", referencedColumnName = "id", nullable = false)
     private TipoPet tipo;
     
-	public Pet(String nome, TipoPet tipo) {
+    @ManyToOne
+    @JoinColumn(name = "dono", referencedColumnName = "id")
+    private Dono dono;
+    
+	public Pet(String nome, TipoPet tipo, Dono dono) {
 		this.nome = nome;
 		this.tipo = tipo;
+		this.dono = dono;
 	}
 }

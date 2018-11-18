@@ -26,6 +26,9 @@ public class Dono {
     
     @Column(name = "nome", nullable = false, unique = true)
     private String nome;
+    
+    @Column(name = "ativo", nullable = false)
+    private boolean ativo;
 
 	public Dono(String nome) {
 		this.nome = nome;
