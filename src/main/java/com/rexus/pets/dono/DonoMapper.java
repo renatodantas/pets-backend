@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 interface DonoMapper {
 
 	DonoMapper INSTANCE = Mappers.getMapper(DonoMapper.class);
-	
+
 	@Mappings({
 		@Mapping(source="id", target="id"),
 		@Mapping(source="nome", target="nome")
@@ -18,7 +18,8 @@ interface DonoMapper {
 	
 	@Mappings({
 		@Mapping(source="id", target="id"),
-		@Mapping(source="nome", target="nome")
+		@Mapping(source="nome", target="nome"),
+		@Mapping(target="ativo", ignore=true)
 	})
 	Dono to(DonoDto pet);
 }
