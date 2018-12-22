@@ -16,10 +16,10 @@ import com.rexus.pets.tipopet.TipoPetRepository;
 import lombok.val;
 
 @SpringBootApplication
-public class Application {
+public class PetsApplication {
 
     public static void main(String... args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(PetsApplication.class, args);
     }
 
     @Autowired
