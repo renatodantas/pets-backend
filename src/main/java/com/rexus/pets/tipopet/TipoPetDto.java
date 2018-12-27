@@ -1,11 +1,9 @@
 package com.rexus.pets.tipopet;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Value;
 
-@Getter
-@Setter
+@Value
 @EqualsAndHashCode(of = "id")
 public class TipoPetDto {
 

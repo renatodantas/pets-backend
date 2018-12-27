@@ -1,25 +1,12 @@
 package com.rexus.pets.dono;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.factory.Mappers;
+public interface DonoMapper {
 
-@Mapper
-interface DonoMapper {
-
-	DonoMapper INSTANCE = Mappers.getMapper(DonoMapper.class);
-
-	@Mappings({
-		@Mapping(source="id", target="id"),
-		@Mapping(source="nome", target="nome")
-	})
-	DonoDto to(Dono pet);
+	public static DonoDto to(Dono dono) {
+		return new DonoDto(dono.getId(), dono.getNome(), dono.isAtivo());
+	}
 	
-	@Mappings({
-		@Mapping(source="id", target="id"),
-		@Mapping(source="nome", target="nome"),
-		@Mapping(target="ativo", ignore=true)
-	})
-	Dono to(DonoDto pet);
+	public static Dono to(DonoDto dto) {
+		return new Dono(dto.getId(), dto.getNome(), dto.isAtivo());
+	}
 }

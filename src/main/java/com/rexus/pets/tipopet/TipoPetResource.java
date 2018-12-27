@@ -1,7 +1,8 @@
 package com.rexus.pets.tipopet;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public class TipoPetResource {
 		
 		log.info("Tipos de pets encontrados: {}", tipos.size());
 		return tipos.stream()
-				.map(TipoPetMapper.INSTANCE::to)
-				.collect(Collectors.toList());
+				.map(TipoPetMapper::to)
+				.collect(toList());
 	}
 }

@@ -1,7 +1,8 @@
 package com.rexus.pets.pet;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public class PetResource {
 		val pets = petService.findAll();
 		log.info("Pets encontrados: {}", pets.size());
 		return pets.stream()
-				.map(PetMapper.INSTANCE::to)
-				.collect(Collectors.toList());
+				.map(PetMapper::to)
+				.collect(toList());
 	}
 }

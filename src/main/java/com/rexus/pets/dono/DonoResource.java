@@ -29,7 +29,7 @@ public class DonoResource {
 		val donos = donoService.findAll();
 		log.info("Donos encontrados: {}", donos.size());
 		return donos.stream()
-				.map(DonoMapper.INSTANCE::to)
+				.map(DonoMapper::to)
 				.collect(Collectors.toList());
 	}
 }

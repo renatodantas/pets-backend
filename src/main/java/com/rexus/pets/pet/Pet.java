@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import com.rexus.pets.dono.Dono;
 import com.rexus.pets.tipopet.TipoPet;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Pet {
 
     @Id
@@ -41,8 +43,6 @@ public class Pet {
     private Dono dono;
     
 	public Pet(String nome, TipoPet tipo, Dono dono) {
-		this.nome = nome;
-		this.tipo = tipo;
-		this.dono = dono;
+		this(null, nome, tipo, dono);
 	}
 }

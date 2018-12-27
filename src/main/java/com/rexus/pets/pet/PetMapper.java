@@ -1,25 +1,23 @@
 package com.rexus.pets.pet;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.ReportingPolicy;
-import org.mapstruct.factory.Mappers;
+import com.rexus.pets.dono.DonoMapper;
+import com.rexus.pets.tipopet.TipoPetMapper;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PetMapper {
 
-	PetMapper INSTANCE = Mappers.getMapper(PetMapper.class);
-	
-	@Mappings({
-		@Mapping(source="id", target="id"),
-		@Mapping(source="nome", target="nome")
-	})
-	PetDto to(Pet pet);
-	
-	@Mappings({
-		@Mapping(source="id", target="id"),
-		@Mapping(source="nome", target="nome")
-	})
-	Pet to(PetDto dto);
+	public static PetDto to(Pet pet) {
+		return new PetDto(
+				pet.getId(), 
+				pet.getNome(),
+				TipoPetMapper.to(pet.getTipo()),
+				DonoMapper.to(pet.getDono()));
+	}
+
+	public static Pet to(PetDto dto) {
+		return new Pet(
+				dto.getId(), 
+				dto.getNome(),
+				TipoPetMapper.to(dto.getTipo()),
+				DonoMapper.to(dto.getDono()));
+	}
 }

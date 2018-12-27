@@ -1,15 +1,18 @@
 package com.rexus.pets.pet;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import com.rexus.pets.dono.DonoDto;
+import com.rexus.pets.tipopet.TipoPetDto;
 
-@Getter
-@Setter
-@EqualsAndHashCode(of = "id")
+import lombok.EqualsAndHashCode;
+import lombok.Value;
+
+@Value
+@EqualsAndHashCode(of="id")
 public class PetDto {
 
     private Integer id;
     private String nome;
+    private TipoPetDto tipo;
+    private DonoDto dono;
 
 }

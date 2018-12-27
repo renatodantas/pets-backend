@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,8 @@ import lombok.ToString;
 @Getter @Setter 
 @ToString 
 @EqualsAndHashCode(of = "id") 
-@NoArgsConstructor 
+@NoArgsConstructor
+@AllArgsConstructor
 public class Dono {
 
     @Id 
